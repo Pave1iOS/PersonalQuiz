@@ -9,13 +9,13 @@ import UIKit
 
 final class ResultViewController: UIViewController {
     
-    @IBOutlet var enimalResultLabel: UILabel!
-    @IBOutlet var enimalNameLabel: UILabel!
+    @IBOutlet var animalResultLabel: UILabel!
+    @IBOutlet var animalNameLabel: UILabel!
     
     var answer: [Answer]!
     
-    var enimalResult: String!
-    var enimalName: String!
+    var animalResult: String!
+    var animalName: String!
     
     private var rabbitСhoice = 0
     private var dogСhoice = 0
@@ -26,13 +26,9 @@ final class ResultViewController: UIViewController {
         super.viewDidLoad()
         responseOutput()
         
-        enimalNameLabel.text = enimalName
-        enimalResultLabel.text = enimalResult
-        
-
+        animalNameLabel.text = animalName
+        animalResultLabel.text = animalResult
     }
-    
-    
     
     @IBAction func doneButtonAction(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
@@ -45,24 +41,43 @@ private extension ResultViewController {
         countingCorrectAnswers()
         let animalChoise = [dogСhoice, catСhoice, rabbitСhoice, turtleСhoice]
         
-        if dogСhoice == animalChoise.max() {
-            enimalResult = "Вы - 🐶"
-            enimalName = "Вы собака"
-        } else if catСhoice == animalChoise.max(){
-            enimalResult = "Вы - 🐱"
-            enimalName = "Вы кошка"
-        } else if rabbitСhoice == animalChoise.max(){
-            enimalResult = "Вы - 🐰"
-            enimalName = "Вы заяц"
-        } else if turtleСhoice == animalChoise.max(){
-            enimalResult = "Вы - 🐢"
-            enimalName = "Вы черепаха"
+        answer.forEach { answer in
+            
+            if dogСhoice == animalChoise.max() {
+                description()
+            } else if catСhoice == animalChoise.max(){
+                description()
+            } else if rabbitСhoice == animalChoise.max(){
+                description()
+            } else if turtleСhoice == animalChoise.max(){
+                description()
+            }
+
         }
         
         print("maximum count enimal")
         print(animalChoise.max() ?? "")
         print("and other animal count")
         print(dogСhoice, catСhoice, rabbitСhoice, turtleСhoice)
+    }
+    
+    func description() {
+        answer.forEach { answer in
+            switch answer.animal {
+            case .dog:
+                animalResult = "Вы - \(answer.animal.rawValue)"
+                animalName = answer.animal.definition
+            case .cat:
+                animalResult = "Вы - \(answer.animal.rawValue)"
+                animalName = answer.animal.definition
+            case .rabbit:
+                animalResult = "Вы - \(answer.animal.rawValue)"
+                animalName = answer.animal.definition
+            case .turtle:
+                animalResult = "Вы - \(answer.animal.rawValue)"
+                animalName = answer.animal.definition
+            }
+        }
     }
     
     func countingCorrectAnswers() {
