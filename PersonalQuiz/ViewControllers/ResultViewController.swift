@@ -80,5 +80,20 @@ private extension ResultViewController {
         print("and other animal count")
         print(dogСhoice, catСhoice, rabbitСhoice, turtleСhoice)
     }
-
+    
+    func countingCorrectAnswers() {
+        answer.forEach { answer in
+            switch answer.animal {
+                
+            case .dog:
+                dogСhoice += 1
+            case .cat:
+                catСhoice += 1
+            case .rabbit:
+                rabbitСhoice += 1
+            case .turtle:
+                turtleСhoice += 1
+            }
+        }
+    }
 }
