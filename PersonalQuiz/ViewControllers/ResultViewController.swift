@@ -40,23 +40,7 @@ final class ResultViewController: UIViewController {
 }
 
 private extension ResultViewController {
-    
-    func countingCorrectAnswers() {
-        answer.forEach { answer in
-            switch answer.animal {
-                
-            case .dog:
-                dogСhoice += 1
-            case .cat:
-                catСhoice += 1
-            case .rabbit:
-                rabbitСhoice += 1
-            case .turtle:
-                turtleСhoice += 1
-            }
-        }
-    }
-    
+        
     func responseOutput() {
         countingCorrectAnswers()
         let animalChoise = [dogСhoice, catСhoice, rabbitСhoice, turtleСhoice]
