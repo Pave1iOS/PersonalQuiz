@@ -15,7 +15,7 @@ final class ResultViewController: UIViewController {
     var answer: [Answer]!
     
     var animalResult: String!
-    var animalName: String!
+    var animalDescription: String!
     
     private var rabbitСhoice = 0
     private var dogСhoice = 0
@@ -24,9 +24,9 @@ final class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        responseOutput()
+        showResult()
         
-        animalNameLabel.text = animalName
+        animalNameLabel.text = animalDescription
         animalResultLabel.text = animalResult
     }
     
@@ -37,28 +37,29 @@ final class ResultViewController: UIViewController {
 
 private extension ResultViewController {
         
-    func responseOutput() {
-        countingCorrectAnswers()
-        let animalChoise = [dogСhoice, catСhoice, rabbitСhoice, turtleСhoice]
+    func showResult() {
+        calculateChoice()
+        
+        let animalsChoice = [dogСhoice, catСhoice, rabbitСhoice, turtleСhoice]
         
         answer.forEach { answer in
-            
-            if dogСhoice == animalChoise.max() {
+            switch answer.animal {
+            case .dog where dogСhoice == animalsChoice.max():
                 description()
-            } else if catСhoice == animalChoise.max(){
+            case .cat where catСhoice == animalsChoice.max():
                 description()
-            } else if rabbitСhoice == animalChoise.max(){
+            case .rabbit where rabbitСhoice == animalsChoice.max():
                 description()
-            } else if turtleСhoice == animalChoise.max(){
+            case .turtle where turtleСhoice == animalsChoice.max():
                 description()
+            default:
+                break
             }
-
         }
         
-        print("maximum count enimal")
-        print(animalChoise.max() ?? "")
-        print("and other animal count")
-        print(dogСhoice, catСhoice, rabbitСhoice, turtleСhoice)
+        //Проверка ответов
+        print("dog = \(dogСhoice), cat = \(catСhoice), rabbit = \(rabbitСhoice), turtle = \(turtleСhoice)")
+        
     }
     
     func description() {
@@ -66,24 +67,24 @@ private extension ResultViewController {
             switch answer.animal {
             case .dog:
                 animalResult = "Вы - \(answer.animal.rawValue)"
-                animalName = answer.animal.definition
+                animalDescription = answer.animal.definition
             case .cat:
                 animalResult = "Вы - \(answer.animal.rawValue)"
-                animalName = answer.animal.definition
+                animalDescription = answer.animal.definition
             case .rabbit:
                 animalResult = "Вы - \(answer.animal.rawValue)"
-                animalName = answer.animal.definition
+                animalDescription = answer.animal.definition
             case .turtle:
                 animalResult = "Вы - \(answer.animal.rawValue)"
-                animalName = answer.animal.definition
+                animalDescription = answer.animal.definition
             }
         }
     }
     
-    func countingCorrectAnswers() {
+    func calculateChoice() {
+        
         answer.forEach { answer in
             switch answer.animal {
-                
             case .dog:
                 dogСhoice += 1
             case .cat:
@@ -96,3 +97,4 @@ private extension ResultViewController {
         }
     }
 }
+
