@@ -24,6 +24,8 @@ final class ResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.hidesBackButton.toggle()
+
         showResult()
         
         animalNameLabel.text = animalDescription
@@ -58,7 +60,7 @@ private extension ResultViewController {
         }
         
         //Проверка ответов
-        print("dog = \(dogСhoice), cat = \(catСhoice), rabbit = \(rabbitСhoice), turtle = \(turtleСhoice)")
+        print("🐶 = \(dogСhoice), 🐱 = \(catСhoice), 🐰 = \(rabbitСhoice), 🐢 = \(turtleСhoice)")
         
     }
     
