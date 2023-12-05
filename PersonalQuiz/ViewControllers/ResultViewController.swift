@@ -65,21 +65,10 @@ private extension ResultViewController {
     }
     
     func description() {
+        
         answer.forEach { answer in
-            switch answer.animal {
-            case .dog:
-                animalResult = "Вы - \(answer.animal.rawValue)"
-                animalDescription = answer.animal.definition
-            case .cat:
-                animalResult = "Вы - \(answer.animal.rawValue)"
-                animalDescription = answer.animal.definition
-            case .rabbit:
-                animalResult = "Вы - \(answer.animal.rawValue)"
-                animalDescription = answer.animal.definition
-            case .turtle:
-                animalResult = "Вы - \(answer.animal.rawValue)"
-                animalDescription = answer.animal.definition
-            }
+            animalResult = "Вы - \(answer.animal.rawValue)"
+            animalDescription = answer.animal.definition
         }
     }
     
