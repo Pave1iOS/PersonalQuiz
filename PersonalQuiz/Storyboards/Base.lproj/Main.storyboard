@@ -335,13 +335,13 @@
                     <navigationItem key="navigationItem" title="Результат" id="3hA-p6-Lu7">
                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="lgm-W7-4Wj">
                             <connections>
-                                <action selector="doneButtonAction:" destination="ojo-ql-emH" id="2rk-Nd-h1v"/>
+                                <action selector="doneButtonPressed:" destination="ojo-ql-emH" id="grj-d1-0Xs"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="animalNameLabel" destination="SEz-3E-gQr" id="tpu-iC-87S"/>
-                        <outlet property="animalResultLabel" destination="bx0-ua-oZR" id="go3-s8-10Y"/>
+                        <outlet property="animalTypeLabel" destination="bx0-ua-oZR" id="en7-A2-0pG"/>
+                        <outlet property="descriptionLabel" destination="SEz-3E-gQr" id="TuI-uf-IpC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bFO-CL-2q4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
